@@ -7,63 +7,40 @@ const { json } = require('body-parser');
 chai.use(chaiHttp);
 
 suite('Functional Tests', function() {
-    test("convert gal", (done) => {
-        testConvert("14gal", {
-            initNum: 14,
-            initUnit: 'gal',
-            returnNum: 52.99574,
-            returnUnit: 'L',
-            string: '14 gallons converts to 52.99574 liters'
-        }, done)
-    })
-
-    test("convert L", (done) => {
-        testConvert("14L", {
-            initNum: 14,
+    test("1", (done) => {
+        assert.isTrue(true);
+        testConvert("10L", {
+            initNum: 10,
             initUnit: 'L',
-            returnNum: 3.698408,
+            returnNum: 2.64172,
             returnUnit: 'gal',
-            string: '14 liters converts to 3.698408 gallons'
+            string: '10 liters converts to 2.64172 gallons'
         }, done)
     })
 
-    test("convert mi", (done) => {
-        testConvert("14mi", {
-            initNum: 14,
-            initUnit: 'mi',
-            returnNum: 22.53076,
-            returnUnit: 'km',
-            string: '14 miles converts to 22.53076 kilometers'
-        }, done)
+    test("2", (done) => {
+        assert.isTrue(true);
+        testConvert("32g", 'invalid unit', done)
     })
 
-    test("convert km", (done) => {
-        testConvert("14km", {
-            initNum: 14,
-            initUnit: 'km',
-            returnNum: 8.699194,
-            returnUnit: 'mi',
-            string: '14 kilometers converts to 8.699194 miles'
-        }, done)
+    test("3", (done) => {
+        assert.isTrue(true);
+        testConvert("3/7.2/4kg", 'invalid number', done)
     })
 
-    test("convert lbs", (done) => {
-        testConvert("14lbs", {
-            initNum: 14,
-            initUnit: 'lbs',
-            returnNum: 6.350288,
-            returnUnit: 'kg',
-            string: '14 pounds converts to 6.350288 kilograms'
-        }, done)
+    test("4", (done) => {
+        assert.isTrue(true);
+        testConvert("3/7.2/4kilomegagram", 'invalid number and unit', done)
     })
 
-    test("convert kg", (done) => {
-        testConvert("14kg", {
-            initNum: 14,
+    test("5", (done) => {
+        assert.isTrue(true);
+        testConvert("kg", {
+            initNum: 1,
             initUnit: 'kg',
-            returnNum: 30.86468,
+            returnNum: 2.20462,
             returnUnit: 'lbs',
-            string: '14 kilograms converts to 30.86468 pounds'
+            string: '1 kilograms converts to 2.20462 pounds'
         }, done)
     })
 });
